@@ -34,6 +34,7 @@ nav {
 nav a {
   font-weight: 500;
   padding: 0.5rem 0.75rem;
+  color:white;
   transition: color 0.3s ease;
 }
 
