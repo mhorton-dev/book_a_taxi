@@ -7,6 +7,7 @@ export default function Booking() {
     pickup: "",
     drop: "",
     date: "",
+    time: "",
     passengers: 1,
   });
 
@@ -20,17 +21,28 @@ export default function Booking() {
 
   const validate = () => {
     const newErrors = {};
-    const today = new Date().toISOString().split("T")[0];
+    const now = new Date();
 
     if (!formData.pickup.trim())
       newErrors.pickup = "Pickup location is required.";
     if (!formData.drop.trim())
       newErrors.drop = "Drop-off location is required.";
+
     if (!formData.date) {
-      newErrors.date = "Date & time is required.";
-    } else if (formData.date < today) {
-      newErrors.date = "Date cannot be in the past.";
+      newErrors.date = "Date is required.";
     }
+    if (!formData.time) {
+      newErrors.time = "Time is required.";
+    }
+
+    // If both date and time are entered, check if it's in the past
+    if (formData.date && formData.time) {
+      const selected = new Date(`${formData.date}T${formData.time}`);
+      if (selected < now) {
+        newErrors.time = "Selected date & time cannot be in the past.";
+      }
+    }
+
     if (formData.passengers < 1)
       newErrors.passengers = "At least 1 passenger required.";
 
@@ -57,7 +69,8 @@ export default function Booking() {
 
       {submitted ? (
         <p className="text-green-600 font-semibold">
-          ✅ Booking confirmed! We’ll pick you up at {formData.pickup}.
+          ✅ Booking confirmed! Pickup at {formData.pickup} on {formData.date}{" "}
+          at {formData.time}.
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -87,7 +100,7 @@ export default function Booking() {
 
           {/* Date */}
           <div>
-            <label>Date & Time</label>
+            <label>Date</label>
             <input
               type="date"
               name="date"
@@ -95,6 +108,18 @@ export default function Booking() {
               onChange={handleChange}
             />
             {errors.date && <p className="text-red-500">{errors.date}</p>}
+          </div>
+
+          {/* Time */}
+          <div>
+            <label>Time</label>
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+            />
+            {errors.time && <p className="text-red-500">{errors.time}</p>}
           </div>
 
           {/* Passengers */}
