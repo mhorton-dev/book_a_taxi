@@ -4,6 +4,7 @@ export default function Footer() {
       <div className="footer-container">
         <p>© {new Date().getFullYear()} Book A Taxi. All rights reserved.</p>
         <div className="footer-links">
+          <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/contacts">Contact</a>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import PropTypes from "prop-types";
 
 export default function Navbar({ title }) {
@@ -6,6 +6,7 @@ export default function Navbar({ title }) {
     <nav className="navbar">
       <h1 className="navbar-title">{title}</h1>
       <div className="navbar-links">
+        <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/contacts">Contacts</Link>
         <Link to="/services">Services</Link>
