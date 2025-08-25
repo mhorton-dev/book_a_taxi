@@ -45,12 +45,39 @@ nav a:hover {
 /* =========================
    Footer
 ========================= */
-footer {
+/* =========================
+   Footer Styling
+========================= */
+.footer {
   background-color: var(--secondary-color);
-  color: #d1d5db;
-  text-align: center;
-  padding: 1rem;
+  color: white;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
 }
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color); /* Taxi yellow hover */
+}
+
 
 /* =========================
    Buttons
