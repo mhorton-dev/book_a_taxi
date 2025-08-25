@@ -1,0 +1,116 @@
+/* Import Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   Global Theme
+========================= */
+:root {
+  --primary-color: #facc15;   /* Taxi Yellow */
+  --secondary-color: #111827; /* Dark Gray / Almost Black */
+  --accent-color: #3b82f6;    /* Blue Accent */
+  --bg-color: #f9fafb;        /* Light Background */
+  --text-color: #1f2937;      /* Slate Gray Text */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* =========================
+   Navbar
+========================= */
+nav {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+nav a {
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  background-color: var(--secondary-color);
+  color: #d1d5db;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* =========================
+   Buttons
+========================= */
+button {
+  background-color: var(--primary-color);
+  color: black;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #eab308; /* darker yellow */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   Inputs
+========================= */
+input, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
+  outline: none;
+}
+
+/* =========================
+   Cards / Sections
+========================= */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================
+   Utility
+========================= */
+.text-center {
+  text-align: center;
+}
+
+.max-w-content {
+  max-width: 800px;
+  margin: auto;
+}
